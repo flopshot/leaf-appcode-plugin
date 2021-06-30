@@ -1,0 +1,20 @@
+{
+  parserClass="com.github.flopshot.leafappcodeplugin.LeafParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Leaf"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.flopshot.leafappcodeplugin.psi"
+  psiImplPackage="com.github.flopshot.leafappcodeplugin.psi.impl"
+
+  elementTypeHolderClass="com.github.flopshot.leafappcodeplugin.LeafTypes"
+  elementTypeClass="com.github.flopshot.leafappcodeplugin.psi.LeafElementType"
+  tokenTypeClass="com.github.flopshot.leafappcodeplugin.psi.LeafTokenType"
+}
+
+simpleFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
